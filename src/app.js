@@ -1,5 +1,7 @@
 const express = require('express');
 const cityRouter = require('./routes/cityRouter');
+const cron = require('node-cron');
+const { fetchAndStoreAirQualityForParisCity } = require('./services/cityService');
 
 const app = express();
 
@@ -10,6 +12,12 @@ app.use('/api/v1/cities', cityRouter);
 
 app.all('*', (req, res, next) => {
     return res.status(400).json({ error: 'Route not found!' });
+});
+
+// Schedule the job to run every minute
+cron.schedule('* * * * *', () => {
+    fetchAndStoreAirQualityForParisCity();
+    console.log('Cron job executed.');
 });
 
 // Global Error Handler
