@@ -59,7 +59,7 @@ describe('Test fetchDataForNearestCity', () => {
 });
 
 
-describe('fetchDataForParisCity', () => {
+describe('Test fetchDataForParisCity', () => {
 
   it('should throw an error if the API request fails', async () => {
     // Mock the Axios.get method to simulate an error
@@ -92,7 +92,6 @@ describe('fetchDataForParisCity', () => {
     // Create a spy for AirPollution.create
     const createSpy = jest.spyOn(AirPollution, 'create');
 
-    // Mock the successful creation of AirPollution data
     createSpy.mockResolvedValue();
 
     await fetchDataForParisCity();
