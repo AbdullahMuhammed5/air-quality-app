@@ -40,7 +40,7 @@ You need to configure the application by creating a `.env` file in the project r
 cp .env.example .env 
 ```
 
-This app is using AQair as an external API to fetch the air quality data. So to get benefit of this app you need to create an account on https://www.iqair.com/fr/dashboard to get an API key that will be replaced in the env var below. This API key will authorize you to call AQair APIs.
+This app is using AQair as an external API to fetch the air quality data. So to get benefit of this app you need to create an account on [AQair Dashboard](https://www.iqair.com/fr/dashboard) to get an API key that will be replaced in the env var below. This API key will authorize you to call AQair APIs.
 
 ```
 IQAIR_BASE_URL=https://api.airvisual.com
