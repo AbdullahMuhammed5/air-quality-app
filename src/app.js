@@ -1,5 +1,6 @@
 const express = require('express');
 const cityRouter = require('./routes/cityRouter');
+const config = require('../config');
 
 require('./cronJob');
 
@@ -14,13 +15,10 @@ app.all('*', (req, res, next) => {
     return res.status(400).json({ error: 'Route not found!' });
 });
 
-
 // Global Error Handler
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-  
-    if (err.response && err.response.status === 401) {
-      return res.status(401).json({ error: 'Unauthorized. Check your API key.' });
+    if(config.nodeEnv == 'development') {
+        console.error(err.stack);
     }
 
     res.status(500).json({ error: 'Internal Server Error' });

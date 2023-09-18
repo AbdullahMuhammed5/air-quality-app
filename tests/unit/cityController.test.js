@@ -90,7 +90,6 @@ describe('Test getCityMostPollutedDatetime', () => {
 		expect(res.status).toHaveBeenCalledWith(404);
 		expect(res.json).toHaveBeenCalledWith({ Result: "No pollution data found for UnknownCity" });
 
-		// Restore the original findOne implementation
 		findOneSpy.mockRestore();
 	});
 
@@ -121,7 +120,6 @@ describe('Test getCityMostPollutedDatetime', () => {
 		expect(res.status).toHaveBeenCalledWith(500);
 		expect(res.json).toHaveBeenCalledWith({ error: "Error retrieving most polluted datetime" });
 
-		// Restore the original findOne implementation
 		findOneSpy.mockRestore();
 	});
 });
@@ -164,6 +162,5 @@ const testGetCityMostPollutedDatetimeWithSuccess = async (standard = null) => {
 	expect(res.status).toHaveBeenCalledWith(200);
 	expect(res.json).toHaveBeenCalledWith({ Result: mockData.timestamp });
 
-	// Restore the original findOne implementation
 	findOneSpy.mockRestore();
 }

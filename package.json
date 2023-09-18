@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest",
     "test:integration": "jest --testPathPattern=tests/integration",
     "test:unit": "jest --testPathPattern=tests/unit"
@@ -21,7 +22,6 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "mongodb-memory-server": "^8.15.1",
-    "nock": "^13.3.3",
     "supertest": "^6.3.3"
   }
 }

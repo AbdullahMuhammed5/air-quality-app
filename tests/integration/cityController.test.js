@@ -24,20 +24,6 @@ describe('Test nearest-city-pollution API Endpoint', () => {
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty('Result');
 
-    // Restore the original function after the test
-    client.fetchDataForNearestCity.mockRestore();
-  });
-
-  it('should return air quality data for valid coordinates asdasd', async () => {
-    const expectedError = `I'm an error`
-    jest.spyOn(client, 'fetchDataForNearestCity').mockRejectedValue(expectedError);
-
-    const res = await request.get(endPoint).query({ lat: 123.456, lon: 45.678 });
-
-    expect(res.status).toBe(400);
-    // expect(res.body).toHaveProperty('Result');
-
-    // Restore the original function after the test
     client.fetchDataForNearestCity.mockRestore();
   });
 

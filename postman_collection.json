@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "a3d3e30b-4226-4846-aec0-139dc01297c0",
+		"name": "Air Quality Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17984702"
+	},
+	"item": [
+		{
+			"name": "Get Nearest City Pollution",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/cities/nearest-city-pollution?lat=31.200092&lon=29.918739",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cities",
+						"nearest-city-pollution"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "31.200092"
+						},
+						{
+							"key": "lon",
+							"value": "29.918739"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cities/nearest-city-pollution?lat=31.200092&lon=29.918739",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								"nearest-city-pollution"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "31.200092"
+								},
+								{
+									"key": "lon",
+									"value": "29.918739"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6c-jPN4/l8qhHU02ekzv6U/IhbSB0s\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 16:42:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Result\": {\n        \"Pollution\": {\n            \"ts\": \"2023-09-18T15:00:00.000Z\",\n            \"aqius\": 54,\n            \"mainus\": \"p2\",\n            \"aqicn\": 20,\n            \"maincn\": \"p2\"\n        }\n    }\n}"
+				},
+				{
+					"name": "Failure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cities/nearest-city-pollution?lat=31.200092",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								"nearest-city-pollution"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "31.200092"
+								},
+								{
+									"key": "lon",
+									"value": "29.918739",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-CgzHaeARvM69HyBxmrATmrKGok0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 16:43:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Both longitude and latitude are required as query parameters.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get City Most Air Polluted DateTime",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/cities/most-polluted-datetime?city=Paris",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cities",
+						"most-polluted-datetime"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Paris"
+						},
+						{
+							"key": "standard",
+							"value": "cn",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cities/most-polluted-datetime?city=Paris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								"most-polluted-datetime"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Paris"
+								},
+								{
+									"key": "standard",
+									"value": "cn",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-7FZONrg9eCfFcDJn080eIZABv60\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 16:42:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Result\": \"2023-09-16T21:00:00.000Z\"\n}"
+				},
+				{
+					"name": "City has no Data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "8a591d39-0aeb-4e8a-948f-ff0607dfccb2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cities/most-polluted-datetime?city=London",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								"most-polluted-datetime"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "London"
+								},
+								{
+									"key": "standard",
+									"value": "cn",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f-Ez41FIH7rukGhvs2RHkPlRVWbnQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 16:44:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Result\": \"No pollution data found for London\"\n}"
+				}
+			]
+		}
+	]
+}
