@@ -40,9 +40,22 @@ You need to configure the application by creating a `.env` file in the project r
 cp .env.example .env 
 ```
 
+This app is using AQair as an external API to fetch the air quality data. So to get benefit of this app you need to create an account on https://www.iqair.com/fr/dashboard to get an API key that will be replaced in the env var below. This API key will authorize you to call AQair APIs.
+
+```
+IQAIR_BASE_URL=https://api.airvisual.com
+IQAIR_API_KEY={{YOUR_API_KEY}}
+```
+
 ## Database
 
-This app depend on connecting Mongo Cloud Database, so you need to create one visit [here](https://cloud.mongodb.com/), create a database and get URL and the credentials to add them in the .env file. 
+This app depend on connecting to Mongo Cloud Database, so you need to create one visit [here](https://cloud.mongodb.com/), create a database and get URL and the credentials to add them in the below .env vars. 
+
+```
+DATABASE_URL=
+DATABASE_USER=
+DATABASE_PASSWORD=
+```
 
 ### Running the App
 
@@ -52,7 +65,7 @@ Start the application:
    npm start
    ```
 
-The app will be running at `http://localhost:3000`.
+The app will be running at `http://localhost:3000` as a default.
 
 ### Running Tests
 
