@@ -1,10 +1,12 @@
 const app = require('../../src/app');
+const client = require('../../src/clients/iqairClient');
 const request = require('supertest')(app);
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const mongoose = require('mongoose');
 const AirPollution = require('../../src/models/airPollution');
 
 describe('Test nearest-city-pollution API Endpoint', () => {
+
   const endPoint = "/api/v1/cities/nearest-city-pollution"
 
   it('should return 400 if latitude and longitude are missing', async () => {
@@ -14,20 +16,29 @@ describe('Test nearest-city-pollution API Endpoint', () => {
     expect(res.body).toEqual({ error: 'Both longitude and latitude are required as query parameters.' });
   });
 
-  it('should return air quality data when valid latitude and longitude are provided', async () => {
-    const latitude = 123.456;
-    const longitude = 45.678;
+  it('should return air quality data for valid coordinates', async () => {
+    jest.spyOn(client, 'fetchDataForNearestCity').mockResolvedValue();
 
-    jest.mock('../../src/clients/iqairClient', () => ({
-      fetchDataForNearestCity: jest.fn().mockResolvedValue(),
-    }));
-
-    const res = await request.get(endPoint).query({ lat: latitude, long: longitude });
+    const res = await request.get(endPoint).query({ lat: 123.456, lon: 45.678 });
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty('Result');
-    
-    jest.restoreAllMocks();
+
+    // Restore the original function after the test
+    client.fetchDataForNearestCity.mockRestore();
+  });
+
+  it('should return air quality data for valid coordinates asdasd', async () => {
+    const expectedError = `I'm an error`
+    jest.spyOn(client, 'fetchDataForNearestCity').mockRejectedValue(expectedError);
+
+    const res = await request.get(endPoint).query({ lat: 123.456, lon: 45.678 });
+
+    expect(res.status).toBe(400);
+    // expect(res.body).toHaveProperty('Result');
+
+    // Restore the original function after the test
+    client.fetchDataForNearestCity.mockRestore();
   });
 
 });

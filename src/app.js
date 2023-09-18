@@ -1,7 +1,7 @@
 const express = require('express');
 const cityRouter = require('./routes/cityRouter');
-const cron = require('node-cron');
-const { fetchAndStoreAirQualityForParisCity } = require('./services/cityService');
+
+require('./cronJob');
 
 const app = express();
 
@@ -14,11 +14,6 @@ app.all('*', (req, res, next) => {
     return res.status(400).json({ error: 'Route not found!' });
 });
 
-// Schedule the job to run every minute
-cron.schedule('* * * * *', () => {
-    fetchAndStoreAirQualityForParisCity();
-    console.log('Cron job executed.');
-});
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -27,7 +22,7 @@ app.use((err, req, res, next) => {
     if (err.response && err.response.status === 401) {
       return res.status(401).json({ error: 'Unauthorized. Check your API key.' });
     }
-  
+
     res.status(500).json({ error: 'Internal Server Error' });
 });
 

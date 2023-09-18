@@ -4,13 +4,13 @@ const { mapPollutionData } = require('../services/cityService');
 
 exports.getNearestCityPollution = async function (req, res) {
   try {
-    const { lat, long } = req.query;
+    const { lat, lon } = req.query;
 
-    if (!lat || !long) {
+    if (!lat || !lon) {
       return res.status(400).json({ error: 'Both longitude and latitude are required as query parameters.' });
     }
 
-    const airQualityData = await fetchDataForNearestCity(lat, long);
+    const airQualityData = await fetchDataForNearestCity(lat, lon);
     
     return res.status(200).json(mapPollutionData(airQualityData));
   } catch (error) {

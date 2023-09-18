@@ -12,7 +12,7 @@ exports.fetchDataForNearestCity = async (lat, lon) => {
 			},
 		});
 
-		return response.data.data;
+		return response?.data?.data;
 	} catch (error) {
 		throw Error('Error fetching air quality data: ' + error.message);
 	}
@@ -35,11 +35,11 @@ exports.fetchDataForParisCity = async () => {
 
 		await AirPollution.create({
 			city: city,
-			aqicn: current.pollution.aqicn,
-			aqius: current.pollution.aqius,
-			maincn: current.pollution.maincn,
-			mainus: current.pollution.mainus,
-			timestamp: current.pollution.ts,
+			aqicn: current?.pollution.aqicn,
+			aqius: current?.pollution.aqius,
+			maincn: current?.pollution.maincn,
+			mainus: current?.pollution.mainus,
+			timestamp: current?.pollution.ts,
 		})
 
 	} catch (error) {
