@@ -116,4 +116,3 @@ The application includes a scheduled cron job that that run every minute to upda
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
